@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 
 import SimpleTable from './components/Table/SimpleTable';
 
-const App: React.FC = () => (
+const App = () => (
   <Container maxWidth="lg">
     <Box my={4}>
       <SimpleTable />

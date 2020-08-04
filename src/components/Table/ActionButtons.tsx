@@ -3,19 +3,19 @@ import { Button } from '@material-ui/core';
 
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  button: {
-    margin: theme.spacing(1),
-  },
-}));
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    button: {
+      margin: theme.spacing(1),
+    },
+  })
+);
 
 type ActionButtonProps = {
   id: number;
 };
 
-const ActionButtons: FC<ActionButtonProps> = ({
-  id,
-}: ActionButtonProps) => {
+const ActionButtons = ({ id }: ActionButtonProps) => {
   const classes = useStyles();
   return (
     <>

@@ -9,7 +9,11 @@ const options = {
   // filterType: 'checkbox',
 };
 
-const SimpleTable: React.FC = () => {
+// https://material-ui.com/components/transitions/#fade
+
+// https://github.com/gregnb/mui-datatables
+
+const SimpleTable = () => {
   const data = [
     [
       'Joe James',
@@ -32,7 +36,7 @@ const SimpleTable: React.FC = () => {
 
   return (
     <MUIDataTable
-      title="Employee List"
+      title="TODO application"
       data={data}
       columns={columns}
       options={options}
