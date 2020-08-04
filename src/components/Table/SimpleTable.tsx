@@ -13,7 +13,7 @@ const options = {
 
 // https://github.com/gregnb/mui-datatables
 
-const SimpleTable: React.FC = () => {
+const SimpleTable = () => {
   const data = [
     [
       'Joe James',
