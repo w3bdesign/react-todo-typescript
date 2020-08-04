@@ -13,6 +13,8 @@ const options = {
 
 // https://github.com/gregnb/mui-datatables
 
+// https://codesandbox.io/s/github/gregnb/mui-datatables?file=/examples/component/index.js
+
 const SimpleTable = () => {
   const data = [
     [
