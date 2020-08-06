@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import MUIDataTable from 'mui-datatables';
 import { Button } from '@material-ui/core';
 
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme: Theme) => createStyles({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
+
 // https://material-ui.com/components/transitions/#fade
 
 // https://github.com/gregnb/mui-datatables
@@ -9,6 +17,7 @@ import { Button } from '@material-ui/core';
 // https://codesandbox.io/s/github/gregnb/mui-datatables?file=/examples/component/index.js
 
 const SimpleTable = () => {
+  const classes = useStyles();
   const [columns, setColumns] = useState([
 
     'Title',
@@ -26,6 +35,7 @@ const SimpleTable = () => {
             <Button
               variant="contained"
               color="primary"
+              className={classes.button}
               onClick={(event) => {
                 console.log('Value: ');
                 console.log(value);
@@ -40,6 +50,7 @@ const SimpleTable = () => {
             <Button
               variant="contained"
               color="primary"
+              className={classes.button}
               onClick={(event) => {
                 console.log('Tablemeta index: ');
 
