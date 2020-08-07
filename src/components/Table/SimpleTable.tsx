@@ -1,6 +1,7 @@
 import MUIDataTable from 'mui-datatables';
 import React from 'react';
 import { useStoreState } from 'easy-peasy';
+import AddTodoForm from '../AddTodoForm/AddTodoForm';
 
 // https://material-ui.com/components/transitions/#fade
 
@@ -37,13 +38,14 @@ const SimpleTable = () => {
   ];
 
   return (
-    <MUIDataTable
-      title={<h1>TODO Application</h1>}
-      data={data}
-      columns={todoItems}
-      // columns={store.todos.items}
-      // options={options}
-    />
+    <>
+      <MUIDataTable
+        title={<h1>TODO Application</h1>}
+        data={data}
+        columns={todoItems}
+      />
+      <AddTodoForm />
+    </>
   );
 };
 
