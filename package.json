@@ -19,6 +19,7 @@
     "mui-datatables": "^3.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^6.3.0",
     "react-scripts": "3.4.1",
     "typescript": "^3.9.7"
   },
