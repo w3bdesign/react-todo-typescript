@@ -1,13 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MUIDataTable from 'mui-datatables';
 
-import ActionButtons from './ActionButtons';
-
-const columns = ['Title', 'Date', 'Action'];
-
-const options = {
-  // filterType: 'checkbox',
-};
+import INITIAL_STATE from '../../const/INITIAL_STATE';
 
 // https://material-ui.com/components/transitions/#fade
 
@@ -15,33 +9,37 @@ const options = {
 
 // https://codesandbox.io/s/github/gregnb/mui-datatables?file=/examples/component/index.js
 
+export interface Test {
+  name: string;
+  options: {
+    filter: boolean;
+    customBodyRender: (value: number, tableMeta: number) => JSX.Element;
+  };
+}
+
 const SimpleTable = () => {
+  // TODO Add better typing here
+  const [columns, setdataColumns] = useState<any>(INITIAL_STATE);
+
   const data = [
     [
-      'Joe James',
+      'Play with Material UI',
       new Date().toLocaleString('no-NO'),
-      <ActionButtons id={1} />],
-    [
-      'John Walsh',
-      new Date().toLocaleString('no-NO'),
-      <ActionButtons id={2} />,
+      'Play with Material UI',
     ],
-    ['Bob Herm',
-      new Date().toLocaleString('no-NO'),
-      <ActionButtons id={3} />],
     [
-      'James Houston',
+      'Play more with Material UI',
       new Date().toLocaleString('no-NO'),
-      <ActionButtons id={4} />,
+      'Play more with Material UI',
     ],
   ];
 
   return (
     <MUIDataTable
-      title="TODO application"
+      title={<h1>TODO Application</h1>}
       data={data}
       columns={columns}
-      options={options}
+      // options={options}
     />
   );
 };
