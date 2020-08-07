@@ -41,7 +41,6 @@ const SimpleTable = () => {
       title={<h1>TODO Application</h1>}
       data={data}
       columns={todoItems}
-      // columns={store.todos.items}
       // options={options}
     />
   );

@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 // TODO Add better typing here
 
-const CompleteButton = ({tableMeta}:any) => {
+const CompleteButton = ({ tableMeta }:any) => {
   const classes = useStyles();
   return (
     <>
