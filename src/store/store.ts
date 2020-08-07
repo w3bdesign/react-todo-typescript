@@ -9,6 +9,7 @@ const store = createStore({
     items: INITIAL_STATE,
     add: action((state, payload) => {
       // state.todos.items.push(payload);
+      console.log("State from Easy Peasy: ")
       console.log(state);
     }),
   },

@@ -1,9 +1,6 @@
 import MUIDataTable from 'mui-datatables';
-import React, { useState } from 'react';
+import React from 'react';
 import { useStoreState } from 'easy-peasy';
-// import INITIAL_STATE from '../../const/INITIAL_STATE';
-
-import store from '../../store/store';
 
 // https://material-ui.com/components/transitions/#fade
 
@@ -25,10 +22,6 @@ const SimpleTable = () => {
   console.log(todoItems);
 
   // TODO Add better typing here
-  // TODO Add Easy Peasy here
-  // const [columns, setdataColumns] = useState(INITIAL_STATE);
-
-  console.log(store);
 
   const data = [
     [
