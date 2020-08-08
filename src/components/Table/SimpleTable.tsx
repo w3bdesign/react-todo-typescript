@@ -5,6 +5,8 @@ import { useStoreState } from 'easy-peasy';
 import AddTodoForm from '../AddTodoForm/AddTodoForm';
 import DATA from '../../const/DATA';
 
+import { BodyRender } from './types';
+
 // https://material-ui.com/components/transitions/#fade
 
 // https://github.com/gregnb/mui-datatables
@@ -15,7 +17,7 @@ export interface Test {
   name: string;
   options: {
     filter: boolean;
-    customBodyRender: (value: number, tableMeta: number) => JSX.Element;
+    customBodyRender: ({ value, tableMeta }: BodyRender) => JSX.Element;
   };
 }
 

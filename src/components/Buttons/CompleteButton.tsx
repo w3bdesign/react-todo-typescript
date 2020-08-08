@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-import { ButtonProps } from '../../types/button';
+import { ButtonProps } from './types';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   button: {
