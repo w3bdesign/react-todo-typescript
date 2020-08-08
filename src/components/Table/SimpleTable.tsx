@@ -1,6 +1,7 @@
 import MUIDataTable from 'mui-datatables';
 import React from 'react';
 import { useStoreState } from 'easy-peasy';
+
 import AddTodoForm from '../AddTodoForm/AddTodoForm';
 
 // https://material-ui.com/components/transitions/#fade
@@ -19,6 +20,7 @@ export interface Test {
 
 const SimpleTable = () => {
   const todoItems = useStoreState((state) => state.todos.items);
+  // const todoItems = useStoreState('test');
 
   console.log(todoItems);
 
@@ -26,7 +28,7 @@ const SimpleTable = () => {
 
   const data = [
     [
-      'Play with Material UI',
+      'Play with Material UI and test',
       new Date().toLocaleString('no-NO'),
       'Play with Material UI',
     ],
