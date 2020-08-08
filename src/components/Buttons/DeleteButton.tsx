@@ -3,17 +3,13 @@ import { Button } from '@material-ui/core';
 
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    button: {
-      margin: theme.spacing(1),
-    },
-  })
-);
+const useStyles = makeStyles((theme: Theme) => createStyles({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
-// TODO Add better typing here
-
-const DeleteButton = ({ tableMeta }: any) => {
+const DeleteButton = ({ tableMeta }: { tableMeta: { rowIndex: number } }) => {
   const classes = useStyles();
   return (
     <>

@@ -25,20 +25,12 @@ const AddTodoForm = () => {
   // className={classes.root} variant="outlined" raised>
 
   return (
-    <Paper className={classes.root} elevation={3}>
-      <Typography
-        className={classes.title}
-        color="textSecondary"
-        gutterBottom
-      >
+    <Paper className={classes.root} elevation={3} variant="elevation">
+      <Typography className={classes.title} color="textSecondary" gutterBottom>
         Add TODO item
       </Typography>
       <form className={classes.root} noValidate autoComplete="off">
-        <TextField
-          id="outlined-basic"
-          label="Title"
-          variant="outlined"
-        />
+        <TextField id="outlined-basic" label="Title" variant="outlined" />
         <Button variant="contained" color="primary">
           Add TODO
         </Button>
