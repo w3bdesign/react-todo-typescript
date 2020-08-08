@@ -26,8 +26,6 @@ const SimpleTable = () => {
 
   console.log(todoItems);
 
-  // TODO Add better typing here
-
   return (
     <>
       <MUIDataTable

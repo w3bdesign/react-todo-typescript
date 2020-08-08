@@ -5,6 +5,7 @@ import {
   Paper, Button, TextField, Typography,
 } from '@material-ui/core';
 
+import { useStoreActions } from './hooks';
 import { Inputs } from './types';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -29,6 +30,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const AddTodoForm = () => {
   const classes = useStyles();
+
+  // const add = useStoreActions((actions) => actions.todos.add);
+  const addTodo = useStoreActions((actions) => console.log(actions));
+
   const {
     register, handleSubmit, watch, errors,
   } = useForm<Inputs>();
@@ -36,6 +41,7 @@ const AddTodoForm = () => {
   const onSubmit:SubmitHandler<Inputs> = (data) => {
     console.log('Submit!');
     alert(JSON.stringify(data));
+    //addTodo();
   };
 
   return (
@@ -53,9 +59,6 @@ const AddTodoForm = () => {
           id="outlined-basic"
           label="Title"
           variant="outlined"
-          // inputRef={register}
-          // required
-
           inputRef={register({ required: true })}
         />
         {errors.addTodoInput && (
