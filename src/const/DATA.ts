@@ -2,7 +2,7 @@ const DATA: string[][] = [
   [
     'Play with Material UI and test',
     new Date().toLocaleString('no-NO'),
-    'Play with Material UI',
+    'Play with Material UI and test',
   ],
   [
     'Play more with Material UI',
