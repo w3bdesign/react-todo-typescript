@@ -21,7 +21,8 @@
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.3.0",
     "react-scripts": "3.4.1",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "mutationobserver-shim": "^0.3.7"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.8.0",

@@ -11,7 +11,17 @@ const store = createStore({
     items: INITIAL_STATE,
     add: action((state, payload) => {
       // state.todos.items.push(payload);
-      console.log('State from Easy Peasy: ');
+      console.log('Add State from Easy Peasy: ');
+      console.log(state);
+    }),
+    complete: action((state, payload) => {
+      // state.todos.items.splice(payload);
+      console.log('Complete State from Easy Peasy: ');
+      console.log(state);
+    }),
+    delete: action((state, payload) => {
+      // state.todos.items.splice(payload);
+      console.log('Delete State from Easy Peasy: ');
       console.log(state);
     }),
   },

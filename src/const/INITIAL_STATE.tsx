@@ -3,7 +3,7 @@ import React from 'react';
 import CompleteButton from '../components/Buttons/CompleteButton';
 import DeleteButton from '../components/Buttons/DeleteButton';
 
-// TODO Rename to .ts and add typings
+import { BodyRender } from './types';
 
 const INITIAL_STATE = [
   'Title',
@@ -12,8 +12,7 @@ const INITIAL_STATE = [
     name: 'Action',
     options: {
       filter: true,
-      // customBodyRender: (value: number, tableMeta: { rowIndex: number }) => (
-      customBodyRender: (_, tableMeta) => (
+      customBodyRender: ({ value, tableMeta }:BodyRender) => (
         <>
           <CompleteButton tableMeta={tableMeta} />
           <DeleteButton tableMeta={tableMeta} />

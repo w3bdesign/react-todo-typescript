@@ -3,6 +3,9 @@ import React from 'react';
 import { useStoreState } from 'easy-peasy';
 
 import AddTodoForm from '../AddTodoForm/AddTodoForm';
+import DATA from '../../const/DATA';
+
+import { BodyRender } from './types';
 
 // https://material-ui.com/components/transitions/#fade
 
@@ -14,36 +17,20 @@ export interface Test {
   name: string;
   options: {
     filter: boolean;
-    customBodyRender: (value: number, tableMeta: number) => JSX.Element;
+    customBodyRender: ({ value, tableMeta }: BodyRender) => JSX.Element;
   };
 }
 
 const SimpleTable = () => {
   const todoItems = useStoreState((state) => state.todos.items);
-  // const todoItems = useStoreState('test');
 
   console.log(todoItems);
-
-  // TODO Add better typing here
-
-  const data = [
-    [
-      'Play with Material UI and test',
-      new Date().toLocaleString('no-NO'),
-      'Play with Material UI',
-    ],
-    [
-      'Play more with Material UI',
-      new Date().toLocaleString('no-NO'),
-      'Play more with Material UI',
-    ],
-  ];
 
   return (
     <>
       <MUIDataTable
         title={<h1>TODO Application</h1>}
-        data={data}
+        data={DATA}
         columns={todoItems}
       />
       <AddTodoForm />
