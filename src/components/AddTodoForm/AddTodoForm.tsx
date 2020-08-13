@@ -35,7 +35,6 @@ const AddTodoForm = () => {
   const addTodo = useStoreActions((actions) => {
     console.log('Inside addTodo: ');
     console.log(actions);
-    
   });
 
   console.log('Logging addTodo: ');

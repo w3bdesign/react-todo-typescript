@@ -7,8 +7,6 @@ import { BodyRender } from './types';
 
 // TODO Add better typing here
 
-
-
 const store:any = createStore({
   items: INITIAL_STATE,
   addTodo: action((state, payload) => {
