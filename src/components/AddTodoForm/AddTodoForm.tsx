@@ -32,7 +32,13 @@ const AddTodoForm = () => {
   const classes = useStyles();
 
   // const add = useStoreActions((actions) => actions.todos.add);
-  const addTodo = useStoreActions((actions) => console.log(actions));
+  const addTodo = useStoreActions((actions) => {
+    console.log('Inside addTodo: ');
+    console.log(actions);
+  });
+
+  console.log('Logging addTodo: ');
+  console.log(addTodo);
 
   const {
     register, handleSubmit, watch, errors,
@@ -41,7 +47,7 @@ const AddTodoForm = () => {
   const onSubmit:SubmitHandler<Inputs> = (data) => {
     console.log('Submit!');
     alert(JSON.stringify(data));
-    //addTodo();
+    // addTodo();
   };
 
   return (
@@ -56,7 +62,7 @@ const AddTodoForm = () => {
       >
         <TextField
           name="addTodoInput"
-          id="outlined-basic"
+          id="addTodoInput"
           label="Title"
           variant="outlined"
           inputRef={register({ required: true })}
@@ -66,7 +72,7 @@ const AddTodoForm = () => {
           This field is required
         </Typography>
         )}
-        <Button variant="contained" color="primary" type="submit">
+        <Button variant="contained" color="primary" type="submit" fullWidth>
           Add TODO
         </Button>
       </form>

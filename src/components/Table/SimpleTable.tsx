@@ -1,6 +1,6 @@
 import MUIDataTable from 'mui-datatables';
 import React from 'react';
-import { useStoreState } from 'easy-peasy';
+import { useStoreState, useStoreActions } from 'easy-peasy';
 
 import AddTodoForm from '../AddTodoForm/AddTodoForm';
 import DATA from '../../const/DATA';
@@ -22,7 +22,13 @@ export interface Test {
 }
 
 const SimpleTable = () => {
-  const todoItems = useStoreState((state) => state.todos.items);
+  const todoItems = useStoreState((state) => state.items);
+
+  const addTodo = useStoreActions((actions) => {
+    console.log('Inside Simpletable addTodo: ');
+    console.log(actions);
+    //actions.addTodo('Test');
+  });
 
   console.log(todoItems);
 
