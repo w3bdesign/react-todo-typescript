@@ -1,17 +1,26 @@
 import { Action, action } from 'easy-peasy';
 
 export interface TodosModel {
+  /**
+   * List of todoItems as an array of arrays
+   */
   todoItems: string[][];
+  /**
+   * Action to add a todo to todoItems array
+   */
   addTodo: Action<TodosModel, string>;
+  /**
+   * Action to delete a todo from todoItems array
+   */
   deleteTodo: Action<TodosModel, string>;
 }
 
 const todosModel: TodosModel = {
   todoItems: [
-    ['Test', 'Build', 'Win'],
-    ['Test more', 'Build more', 'Win more'],
-    ['Test even more', 'Build even more', 'Win even more'],
-    ['Test way more', 'Build', 'Win'],
+    ['Test', new Date().toLocaleString('no-NO'), 'Test'],
+    ['Test more', new Date().toLocaleString('no-NO'), 'Test more'],
+    ['Test even more', new Date().toLocaleString('no-NO'), 'Test even more'],
+    ['Test way more', new Date().toLocaleString('no-NO'), 'Test way more'],
   ],
   addTodo: action((state, payload) => {
     state.todoItems.push([payload, payload, payload]);

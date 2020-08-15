@@ -2,14 +2,30 @@ import * as React from 'react';
 import MUIDataTable from 'mui-datatables';
 
 import { useStoreState } from '../../hooks/hooks';
+import CompleteButton from '../Buttons/CompleteButton';
 //import COLUMNS from '../../constants/COLUMNS';
 
-const COLUMNS = ['Title', 'Date', 'Action'];
+const COLUMNS = [
+  'Title',
+  'Date',
+  {
+    name: 'Action',
+    options: {
+      filter: true,
+      customBodyRender: (value:any, tableMeta:any, updateValue:any) => (
+        <CompleteButton tableMeta={tableMeta} />
+      ),
+
+      /*customBodyRenderLite: ({ value, tableMeta }: any) => (
+        <CompleteButton tableMeta={tableMeta} />
+      ),*/
+ 
+    },
+  },
+];
 
 export default function Table() {
-  const todos = useStoreState((state) => state.todos.todoItems);
-  console.log('Todos from Table: ');
-  console.log(todos);
+  const todos = useStoreState((state) => state.todos.todoItems); 
   return (
     <>
       <h2>Todos Daniel - Data</h2>
