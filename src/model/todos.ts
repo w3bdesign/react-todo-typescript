@@ -1,23 +1,23 @@
 import { Action, action } from 'easy-peasy';
 
 export interface TodosModel {
-  oitodoItems: string[][];
+  todoItems: string[][];
   addTodo: Action<TodosModel, string>;
   deleteTodo: Action<TodosModel, string>;
 }
 
 const todosModel: TodosModel = {
-  oitodoItems: [
+  todoItems: [
     ['Test', 'Build', 'Win'],
     ['Test more', 'Build more', 'Win more'],
     ['Test even more', 'Build even more', 'Win even more'],
     ['Test way more', 'Build', 'Win'],
   ],
   addTodo: action((state, payload) => {
-    state.oitodoItems.push([payload, payload, payload]);
+    state.todoItems.push([payload, payload, payload]);
   }),
   deleteTodo: action((state, payload) => {
-    state.oitodoItems.length = 0;
+    state.todoItems.length = 0;
   }),
 };
 
