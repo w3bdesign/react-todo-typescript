@@ -7,7 +7,7 @@ import { useStoreState } from '../../hooks/hooks';
 const COLUMNS = ['Title', 'Date', 'Action'];
 
 export default function Table() {
-  const todos = useStoreState((state) => state.todos.oitodoItems);
+  const todos = useStoreState((state) => state.todos.todoItems);
   console.log('Todos from Table: ');
   console.log(todos);
   return (
