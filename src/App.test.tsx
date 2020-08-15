@@ -1,14 +1,18 @@
-/* eslint-disable no-undef */
-import React from 'react';
+import React, { useState } from 'react';
 import { render } from '@testing-library/react';
 import { StoreProvider } from 'easy-peasy';
 
-import store from '../src/store/store';
+import { useStoreState } from './hooks/hooks';
+import store from './store/index';
 
-import App from './App';
+import Table from './components/Table/Table.component';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<StoreProvider store={store}><App /></StoreProvider>);
-  const linkElement = getByText(/test/i);
+test('renders Test', () => {
+  const { getByText } = render(
+    <StoreProvider store={store}>
+      <Table />
+    </StoreProvider>
+  );
+  const linkElement = getByText(/Learn/i);
   expect(linkElement).toBeInTheDocument();
 });

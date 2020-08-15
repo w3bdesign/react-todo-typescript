@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier', 'prettier/react'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -16,17 +16,48 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    /** Disable false warnings */
+    'jsx-a11y/href-no-hash': ['off'],
+    'react/jsx-props-no-spreading': ['off'],
+    'react/jsx-filename-extension': ['warn', { extensions: ['.ts', '.tsx'] }],
+    'no-console': [
+      'error',
+      {
+        allow: ['warn', 'error'],
+      },
+    ],
+    'multiline-ternary': 0,
+    'no-unused-vars': 'off',
+    'no-shadow': 0,
+    '@typescript-eslint/no-unused-vars': 'error',
+    'no-useless-constructor': 'off',
+    '@typescript-eslint/no-useless-constructor': 'error',
+    'react/prop-types': 0,
     'linebreak-style': 0,
-    'import/no-unresolved': 0,
-    'import/extensions': 0,
-    'no-undef': 1,
-    'no-unused-vars': 0,
-    'react/jsx-filename-extension': [
-      2,
-      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'max-len': [
+      'warn',
+      {
+        code: 80,
+        tabWidth: 2,
+        comments: 80,
+        ignoreComments: false,
+        ignoreTrailingComments: true,
+        ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true,
+      },
     ],
   },
 };
