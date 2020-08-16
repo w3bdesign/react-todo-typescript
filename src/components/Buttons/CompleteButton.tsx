@@ -19,8 +19,7 @@ const CompleteButton = (tableMeta:any) => {
         color="primary"
         className={classes.button}
         onClick={(event) => {
-          console.log('Tablemeta rowIndex: ');
-          console.log(tableMeta);   
+          console.log('Tablemeta rowIndex: ');           
           console.log(tableMeta.tableMeta.rowIndex);         
         }}
       >
