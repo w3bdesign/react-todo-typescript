@@ -2,15 +2,19 @@ import React from 'react';
 import { Button } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-//import { ButtonProps } from './types'; 
+interface ICompleteButtonIndex {
+  tableMeta: { rowIndex: number };
+}
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  button: {
-    margin: theme.spacing(1),
-  },
-}));
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    button: {
+      margin: theme.spacing(1),
+    },
+  })
+);
 
-const CompleteButton = (tableMeta:any) => {
+const CompleteButton = ({ tableMeta }: ICompleteButtonIndex) => {
   const classes = useStyles();
   return (
     <>
@@ -19,8 +23,8 @@ const CompleteButton = (tableMeta:any) => {
         color="primary"
         className={classes.button}
         onClick={(event) => {
-          console.log('Tablemeta rowIndex: ');           
-          console.log(tableMeta.tableMeta.rowIndex);         
+          console.log('Tablemeta new rowIndex: ');
+          console.log(tableMeta.rowIndex);
         }}
       >
         Complete

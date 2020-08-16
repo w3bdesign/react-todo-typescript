@@ -3,7 +3,12 @@ import MUIDataTable from 'mui-datatables';
 
 import { useStoreState } from '../../hooks/hooks';
 import CompleteButton from '../Buttons/CompleteButton';
+
 //import COLUMNS from '../../constants/COLUMNS';
+
+interface ITableMeta {
+  rowIndex: number;
+}
 
 const COLUMNS = [
   'Title',
@@ -11,21 +16,22 @@ const COLUMNS = [
   {
     name: 'Action',
     options: {
-      filter: true,
-      customBodyRender: (value:any, tableMeta:any, updateValue:any) => (
-        <CompleteButton tableMeta={tableMeta} />
-      ),
+      filter: true,     
+      customBodyRender: (
+        value: any,
+        tableMeta: ITableMeta,
+        updateValue: any
+      ) => <CompleteButton tableMeta={tableMeta} />,
 
       /*customBodyRenderLite: ({ value, tableMeta }: any) => (
         <CompleteButton tableMeta={tableMeta} />
       ),*/
- 
     },
   },
 ];
 
 export default function Table() {
-  const todos = useStoreState((state) => state.todos.todoItems); 
+  const todos = useStoreState((state) => state.todos.todoItems);
   return (
     <>
       <h2>Todos Daniel - Data</h2>
