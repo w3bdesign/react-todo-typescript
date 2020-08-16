@@ -10,6 +10,10 @@ export interface TodosModel {
    */
   addTodo: Action<TodosModel, string>;
   /**
+   * Action to complete a todo in todoItems array
+   */
+  completeTodo: Action<TodosModel, string>;
+  /**
    * Action to delete a todo from todoItems array
    */
   deleteTodo: Action<TodosModel, string>;
@@ -24,6 +28,9 @@ const todosModel: TodosModel = {
   ],
   addTodo: action((state, payload) => {
     state.todoItems.push([payload, payload, payload]);
+  }),
+  completeTodo: action((state, payload) => {
+    console.log(payload)
   }),
   deleteTodo: action((state, payload) => {
     state.todoItems.length = 0;

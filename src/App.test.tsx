@@ -13,6 +13,6 @@ test('renders Test', () => {
       <Table />
     </StoreProvider>
   );
-  const linkElement = getByText(/Test/i);
+  const linkElement = getByText(/way/i);
   expect(linkElement).toBeInTheDocument();
 });
