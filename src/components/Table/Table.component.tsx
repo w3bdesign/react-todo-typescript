@@ -16,7 +16,7 @@ const COLUMNS = [
   {
     name: 'Action',
     options: {
-      filter: true,     
+      filter: true,
       customBodyRender: (
         value: any,
         tableMeta: ITableMeta,
