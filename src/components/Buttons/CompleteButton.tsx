@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 }));
 
-const CompleteButton = (tableMeta:any) => {
+const CompleteButton = ({tableMeta}:any) => {
   const classes = useStyles();
   return (
     <>
@@ -20,7 +20,8 @@ const CompleteButton = (tableMeta:any) => {
         className={classes.button}
         onClick={(event) => {
           console.log('Tablemeta rowIndex: ');           
-          console.log(tableMeta.tableMeta.rowIndex);         
+          //console.log(tableMeta.tableMeta.rowIndex);
+          console.log(tableMeta.rowIndex);             
         }}
       >
         Complete
