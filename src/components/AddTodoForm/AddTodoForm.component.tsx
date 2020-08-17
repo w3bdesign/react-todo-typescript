@@ -1,7 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, SyntheticEvent } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Paper, Button, TextField, Typography, Fade } from '@material-ui/core';
+import {
+  Paper,
+  Button,
+  TextField,
+  Typography,
+  Fade,
+  Snackbar,
+} from '@material-ui/core';
+import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 
 import { useStoreActions } from '../../hooks/hooks';
 
@@ -31,9 +39,24 @@ type Inputs = {
   addTodoInput: string;
 };
 
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 const AddTodoForm = () => {
-  const [text, setText] = useState('');
-  const [hasWritten, sethasWritten] = useState(false);
+  /**
+   * Text in AddTodo input field
+   */
+  const [text, setText] = useState<string>('');
+  /**
+   * Text in AddTodo has text = true | false
+   */
+  const [hasWritten, sethasWritten] = useState<boolean>(false);
+  /**
+   * We have added a new TODO = true | false
+   */
+  const [addedTodo, setaddedTodo] = useState<boolean>(false);
+
   const classes = useStyles();
 
   const addTodo = useStoreActions((actions) => actions.todos.addTodo);
@@ -50,8 +73,16 @@ const AddTodoForm = () => {
   }, [text]);
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
+    setaddedTodo(true);
     addTodo(Object.values(data)[0]);
     setText('');
+  };
+
+  const onTodoAddedClose = (event?: SyntheticEvent, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setaddedTodo(false);
   };
 
   const { register, handleSubmit, errors } = useForm<Inputs>();
@@ -95,7 +126,9 @@ const AddTodoForm = () => {
               <Button variant="contained" color="primary" type="submit">
                 Add TODO
               </Button>
-            ) : <div></div>}
+            ) : (
+              <div></div>
+            )}
           </Fade>
 
           <Button
@@ -109,6 +142,14 @@ const AddTodoForm = () => {
           </Button>
         </form>
       </Paper>
+
+      <Snackbar
+        open={addedTodo}
+        autoHideDuration={2000}
+        onClose={onTodoAddedClose}
+      >
+        <Alert severity="success">TODO has been added!</Alert>
+      </Snackbar>
     </div>
   );
 };
