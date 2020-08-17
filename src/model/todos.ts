@@ -21,9 +21,13 @@ export interface TodosModel {
    */
   completeTodo: Action<TodosModel, ICompleteTodo>;
   /**
-   * Action to delete a todo from todoItems array
+   * Action to delete all todos from todoItems array
    */
-  deleteTodo: Action<TodosModel>;
+  deleteAllTodos: Action<TodosModel>;
+  /**
+   * Action to delete a single todo from todoItems array
+   */
+  deleteTodo: Action<TodosModel, ICompleteTodo>;
 }
 
 const todosModel: TodosModel = {
@@ -38,10 +42,14 @@ const todosModel: TodosModel = {
   }),
   completeTodo: action((state, { rowIndex }) => {
     console.log('Complete todo called from todo.ts');
-    console.log(rowIndex);
-    console.log(state.todoItems);
+    console.log(rowIndex);   
   }),
-  deleteTodo: action((state, payload) => {
+  deleteTodo: action((state, { rowIndex }) => {
+    //state.todoItems.length = 0;
+    console.log('Delete single todo called from todo.ts');
+    console.log(rowIndex);    
+  }),
+  deleteAllTodos: action((state, payload) => {
     state.todoItems.length = 0;
   }),
 };

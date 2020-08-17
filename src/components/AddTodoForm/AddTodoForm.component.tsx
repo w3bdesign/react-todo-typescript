@@ -37,7 +37,7 @@ const AddTodoForm = () => {
   const classes = useStyles();
 
   const addTodo = useStoreActions((actions) => actions.todos.addTodo);
-  const deleteTodo = useStoreActions((actions) => actions.todos.deleteTodo);
+  const deleteAllTodos = useStoreActions((actions) => actions.todos.deleteAllTodos);
 
   useEffect(() => {
     if (text.length > 0) {
@@ -107,7 +107,7 @@ const AddTodoForm = () => {
 
           <Button
             onClick={() => {
-              deleteTodo();
+              deleteAllTodos();
             }}
             variant="contained"
             color="primary"

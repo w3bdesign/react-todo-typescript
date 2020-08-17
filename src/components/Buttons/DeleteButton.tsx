@@ -5,9 +5,9 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { useStoreActions } from '../../hooks/hooks';
 
 /**
- * Returns the index of the row we are completing
+ * Returns the index of the row we are deleting
  */
-interface ICompleteButtonIndex {
+interface IDeleteButtonIndex {
   tableMeta: { rowIndex: number };
 }
 
@@ -19,14 +19,14 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const CompleteButton = ({ tableMeta }: ICompleteButtonIndex) => {
+const DeleteButton = ({ tableMeta }: IDeleteButtonIndex) => {
   const classes = useStyles();
 
-  const completeTodo = useStoreActions((actions) => actions.todos.completeTodo);
+  const deleteTodo = useStoreActions((actions) => actions.todos.deleteTodo);
 
-  const onCompleteClick = useCallback(() => {
-    completeTodo(tableMeta);
-  }, [completeTodo, tableMeta]);
+  const onDeleteClick = useCallback(() => {
+    deleteTodo(tableMeta);
+  }, [deleteTodo, tableMeta]);
 
   return (
     <>
@@ -34,12 +34,12 @@ const CompleteButton = ({ tableMeta }: ICompleteButtonIndex) => {
         variant="contained"
         color="primary"
         className={classes.button}
-        onClick={onCompleteClick}
+        onClick={onDeleteClick}
       >
-        Complete
+        Delete
       </Button>
     </>
   );
 };
 
-export default CompleteButton;
+export default DeleteButton;
