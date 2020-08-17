@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Paper, Button, TextField, Typography } from '@material-ui/core';
+import { Paper, Button, TextField, Typography, Fade } from '@material-ui/core';
 
 import { useStoreActions } from '../../hooks/hooks';
 
@@ -32,11 +32,20 @@ type Inputs = {
 };
 
 const AddTodoForm = () => {
-  const [, setText] = useState('');
+  const [text, setText] = useState('');
+  const [hasWritten, sethasWritten] = useState(false);
   const classes = useStyles();
 
   const addTodo = useStoreActions((actions) => actions.todos.addTodo);
   const deleteTodo = useStoreActions((actions) => actions.todos.deleteTodo);
+
+  useEffect(() => {
+    if (text.length > 0) {
+      sethasWritten(true);
+    } else if (text.length === 0) {
+      sethasWritten(false);
+    }
+  }, [text]);
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     addTodo(Object.values(data)[0]);
@@ -65,6 +74,9 @@ const AddTodoForm = () => {
             id="addTodoInput"
             label="Title"
             variant="outlined"
+            onChange={(event) => {
+              setText(event.target.value);
+            }}
             inputRef={register({ required: true })}
           />
           {errors.addTodoInput && (
@@ -76,9 +88,23 @@ const AddTodoForm = () => {
               This field is required
             </Typography>
           )}
-          <Button variant="contained" color="primary" type="submit">
-            Add TODO
-          </Button>
+          <Fade in={hasWritten} timeout={1500}>
+            {hasWritten ? (
+              <Button variant="contained" color="primary" type="submit">
+                Add TODO
+              </Button>
+            ) : (
+              <Button
+                style={{ display: 'none' }}
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
+                Add TODO
+              </Button>
+            )}
+          </Fade>
+
           <Button
             onClick={() => {
               deleteTodo();

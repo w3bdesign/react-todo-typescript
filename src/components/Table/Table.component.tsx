@@ -22,10 +22,6 @@ const COLUMNS = [
         tableMeta: ITableMeta,
         updateValue: any
       ) => <CompleteButton tableMeta={tableMeta} />,
-
-      /*customBodyRenderLite: ({ value, tableMeta }: any) => (
-        <CompleteButton tableMeta={tableMeta} />
-      ),*/
     },
   },
 ];
@@ -34,7 +30,6 @@ export default function Table() {
   const todos = useStoreState((state) => state.todos.todoItems);
   return (
     <>
-      <h2>Todos Daniel - Data</h2>
       <MUIDataTable
         title={<h1>TODO Application</h1>}
         data={todos}

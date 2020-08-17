@@ -9,7 +9,7 @@ interface ICompleteTodo {
 
 export interface TodosModel {
   /**
-   * List of todoItems as an array of arrays
+   * List of todoItems. We accept strings and booleans, and we use the boolean for the completed TODOs
    */
   todoItems: (string | boolean)[][];
   /**
