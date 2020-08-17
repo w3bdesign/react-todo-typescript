@@ -32,8 +32,8 @@ type Inputs = {
 };
 
 const AddTodoForm = () => {
-  const [text, setText] = useState('');
-  const [hasWritten, sethasWritten] = useState(false);
+  const [text, setText] = useState<string>('');
+  const [hasWritten, sethasWritten] = useState<boolean>(false);
   const classes = useStyles();
 
   const addTodo = useStoreActions((actions) => actions.todos.addTodo);
