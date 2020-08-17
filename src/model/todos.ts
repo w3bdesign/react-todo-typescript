@@ -23,7 +23,7 @@ export interface TodosModel {
   /**
    * Action to delete a todo from todoItems array
    */
-  deleteTodo: Action<TodosModel, string>;
+  deleteTodo: Action<TodosModel>;
 }
 
 const todosModel: TodosModel = {
