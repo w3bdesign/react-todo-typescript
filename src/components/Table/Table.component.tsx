@@ -1,25 +1,22 @@
 import * as React from 'react';
 import MUIDataTable from 'mui-datatables';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
 import { useStoreState } from '../../hooks/hooks';
-import CompleteButton from '../Buttons/CompleteButton';
-import DeleteButton from '../Buttons/DeleteButton';
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import CompleteButton from '../Buttons/CompleteButton.component';
+import DeleteButton from '../Buttons/DeleteButton.component';
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({   
+  createStyles({
     title: {
       fontSize: 24,
       textAlign: 'left',
       color: '#000',
       paddingTop: theme.spacing(2),
-    },    
+    },
   })
 );
-
-
-//import COLUMNS from '../../constants/COLUMNS';
 
 interface ITableMeta {
   rowIndex: number;
@@ -33,9 +30,9 @@ const COLUMNS = [
     options: {
       filter: true,
       customBodyRender: (
-        value: any,
+        value: any, // Unused variable, so any is OK
         tableMeta: ITableMeta,
-        updateValue: any
+        updateValue: any // Unused variable, so any is OK
       ) => (
         <>
           <CompleteButton tableMeta={tableMeta} />
@@ -52,7 +49,9 @@ export default function Table() {
   return (
     <>
       <MUIDataTable
-        title={<Typography className={classes.title}>TODO Application</Typography>}
+        title={
+          <Typography className={classes.title}>TODO Application</Typography>
+        }
         data={todos}
         columns={COLUMNS}
       />
