@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       '& > *': {
-        margin: theme.spacing(2),      
+        margin: theme.spacing(2),
         width: '98%',
       },
     },
@@ -32,7 +32,7 @@ type Inputs = {
 };
 
 const AddTodoForm = () => {
-  const [text, setText] = useState('');
+  const [, setText] = useState('');
   const classes = useStyles();
 
   const addTodo = useStoreActions((actions) => actions.todos.addTodo);
@@ -43,7 +43,7 @@ const AddTodoForm = () => {
     setText('');
   };
 
-  const { register, handleSubmit, watch, errors } = useForm<Inputs>();
+  const { register, handleSubmit, errors } = useForm<Inputs>();
 
   return (
     <div>
@@ -80,15 +80,15 @@ const AddTodoForm = () => {
             Add TODO
           </Button>
           <Button
-          onClick={() => {
-            deleteTodo("");
-          }}
-          variant="contained"
-          color="primary"
-        >
-          Delete TODOs
-        </Button>
-        </form>        
+            onClick={() => {
+              deleteTodo();
+            }}
+            variant="contained"
+            color="primary"
+          >
+            Delete TODOs
+          </Button>
+        </form>
       </Paper>
     </div>
   );
