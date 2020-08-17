@@ -1,5 +1,9 @@
 import { Action, action } from 'easy-peasy';
 
+interface ICompleteTodo {
+  rowIndex: number;
+}
+
 export interface TodosModel {
   /**
    * List of todoItems as an array of arrays
@@ -12,7 +16,7 @@ export interface TodosModel {
   /**
    * Action to complete a todo in todoItems array
    */
-  completeTodo: Action<TodosModel, string>;
+  completeTodo: Action<TodosModel, ICompleteTodo>;
   /**
    * Action to delete a todo from todoItems array
    */
@@ -29,8 +33,9 @@ const todosModel: TodosModel = {
   addTodo: action((state, payload) => {
     state.todoItems.push([payload, payload, payload]);
   }),
-  completeTodo: action((state, payload) => {
-    console.log(payload)
+  completeTodo: action((state, {rowIndex}) => {
+    console.log("Complete todo called from todo.ts")
+    console.log(rowIndex);
   }),
   deleteTodo: action((state, payload) => {
     state.todoItems.length = 0;
