@@ -37,7 +37,9 @@ const AddTodoForm = () => {
   const classes = useStyles();
 
   const addTodo = useStoreActions((actions) => actions.todos.addTodo);
-  const deleteAllTodos = useStoreActions((actions) => actions.todos.deleteAllTodos);
+  const deleteAllTodos = useStoreActions(
+    (actions) => actions.todos.deleteAllTodos
+  );
 
   useEffect(() => {
     if (text.length > 0) {
@@ -47,7 +49,7 @@ const AddTodoForm = () => {
     }
   }, [text]);
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
     addTodo(Object.values(data)[0]);
     setText('');
   };
@@ -93,16 +95,7 @@ const AddTodoForm = () => {
               <Button variant="contained" color="primary" type="submit">
                 Add TODO
               </Button>
-            ) : (
-              <Button
-                style={{ display: 'none' }}
-                variant="contained"
-                color="primary"
-                type="submit"
-              >
-                Add TODO
-              </Button>
-            )}
+            ) : <div></div>}
           </Fade>
 
           <Button
