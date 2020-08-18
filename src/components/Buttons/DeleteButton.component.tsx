@@ -32,7 +32,7 @@ const DeleteButton = ({ tableMeta }: IDeleteButtonIndex) => {
     <>
       <Button
         variant="contained"
-        color="primary"
+        color="secondary"
         className={classes.button}
         onClick={onDeleteClick}
       >
