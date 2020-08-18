@@ -29,7 +29,8 @@ interface ITableMeta {
 const COLUMNS = [
   'Title',
   'Date',
-  'Completed',
+  '',
+
   {
     name: 'Action',
     options: {

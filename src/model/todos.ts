@@ -31,24 +31,16 @@ export interface TodosModel {
 }
 
 const todosModel: TodosModel = {
-  todoItems: [
-    ['Test', new Date().toLocaleString('no-NO'), false],
-    ['Test more', new Date().toLocaleString('no-NO'), false],
-    ['Test even more', new Date().toLocaleString('no-NO'), false],
-    ['Test way more', new Date().toLocaleString('no-NO'), false],
-  ],
+  todoItems: [['Test', new Date().toLocaleString('no-NO'), false]],
   addTodo: action((state, payload) => {
-    state.todoItems.push([payload, payload, payload]);
+    state.todoItems.push([payload, new Date().toLocaleString('no-NO'), false]);
   }),
-  completeTodo: action((state, { rowIndex }) => {  
-    state.todoItems[rowIndex][2] = true   
+  completeTodo: action((state, { rowIndex }) => {
+    state.todoItems[rowIndex][2] = true;
   }),
-  deleteTodo: action((state, { rowIndex }) => {
-    //state.todoItems.length = 0;
+  deleteTodo: action((state, { rowIndex }) => {    
     console.log('Delete single todo called from todo.ts');
     console.log(rowIndex);
-    
-
   }),
   deleteAllTodos: action((state, _) => {
     state.todoItems.length = 0;
