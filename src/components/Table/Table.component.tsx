@@ -29,8 +29,15 @@ interface ITableMeta {
 const COLUMNS = [
   'Title',
   'Date',
-  '',
-
+  {
+    name: 'Completed',
+    options: {
+      //display: 'excluded',
+      print: false,
+      filter: false,
+      sort: false
+    },
+  },
   {
     name: 'Action',
     options: {
@@ -54,7 +61,8 @@ export default function Table() {
   const todos = useStoreState((state) => state.todos.todoItems);
 
   const options = {
-    setRowProps: (row: (string | boolean)[], rowIndex: number) => {
+    setRowProps: (row: (string | boolean)[], _: number) => {
+      console.log(row);
       return {
         className: clsx({
           [classes.CompletedTodoRow]: row[2] === true,
