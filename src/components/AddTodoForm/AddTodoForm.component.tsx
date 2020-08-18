@@ -130,7 +130,6 @@ const AddTodoForm = () => {
               <div></div>
             )}
           </Fade>
-
           <Button
             onClick={() => {
               deleteAllTodos();
@@ -138,11 +137,10 @@ const AddTodoForm = () => {
             variant="contained"
             color="primary"
           >
-            Delete TODOs
+            Delete all TODOs
           </Button>
         </form>
       </Paper>
-
       <Snackbar
         open={addedTodo}
         autoHideDuration={2000}
