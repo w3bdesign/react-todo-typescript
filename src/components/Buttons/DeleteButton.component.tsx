@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     button: {
       margin: theme.spacing(1),
+      minWidth: '120px',
     },
   })
 );
@@ -32,7 +33,7 @@ const DeleteButton = ({ tableMeta }: IDeleteButtonIndex) => {
     <>
       <Button
         variant="contained"
-        color="primary"
+        color="secondary"
         className={classes.button}
         onClick={onDeleteClick}
       >

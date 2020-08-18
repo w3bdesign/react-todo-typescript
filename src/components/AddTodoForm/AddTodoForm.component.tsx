@@ -8,6 +8,7 @@ import {
   Typography,
   Fade,
   Snackbar,
+  Box,
 } from '@material-ui/core';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 
@@ -18,7 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       '& > *': {
         margin: theme.spacing(2),
-        width: '98%',
       },
     },
     title: {
@@ -31,6 +31,12 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: 16,
       textAlign: 'left',
       color: '#FF0000',
+    },
+    buttonBox: {
+      display: 'flex',
+    },
+    buttons: {
+      margin: theme.spacing(1),
     },
   })
 );
@@ -102,43 +108,61 @@ const AddTodoForm = () => {
           autoComplete="off"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <TextField
-            name="addTodoInput"
-            id="addTodoInput"
-            label="Title"
-            variant="outlined"
-            onChange={(event) => {
-              setText(event.target.value);
-            }}
-            inputRef={register({ required: true })}
-          />
-          {errors.addTodoInput && (
-            <Typography
-              className={classes.error}
-              color="textSecondary"
-              gutterBottom
-            >
-              This field is required
-            </Typography>
-          )}
-          <Fade in={hasWritten} timeout={1500}>
-            {hasWritten ? (
-              <Button variant="contained" color="primary" type="submit">
-                Add TODO
-              </Button>
-            ) : (
-              <div></div>
+          <Box justifyContent="center">
+            <TextField
+              fullWidth
+              name="addTodoInput"
+              id="addTodoInput"
+              label="Title"
+              variant="outlined"
+              onChange={(event) => {
+                setText(event.target.value);
+              }}
+              inputRef={register({ required: true })}
+            />
+
+            {errors.addTodoInput && (
+              <Typography
+                className={classes.error}
+                color="textSecondary"
+                gutterBottom
+              >
+                This field is required
+              </Typography>
             )}
-          </Fade>
-          <Button
-            onClick={() => {
-              deleteAllTodos();
-            }}
-            variant="contained"
-            color="primary"
+          </Box>
+
+          <Box
+            className={classes.buttonBox}
+            justifyContent="center"
+            width="100%"
           >
-            Delete all TODOs
-          </Button>
+            <Fade in={hasWritten} timeout={1500}>
+              {hasWritten ? (
+                <Button
+                  className={classes.buttons}
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                >
+                  Add TODO
+                </Button>
+              ) : (
+                <div></div>
+              )}
+            </Fade>
+
+            <Button
+              className={classes.buttons}
+              onClick={() => {
+                deleteAllTodos();
+              }}
+              variant="contained"
+              color="secondary"
+            >
+              Delete all
+            </Button>
+          </Box>
         </form>
       </Paper>
       <Snackbar
