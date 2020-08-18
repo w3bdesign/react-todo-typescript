@@ -131,7 +131,6 @@ const AddTodoForm = () => {
               </Typography>
             )}
           </Box>
-
           <Box
             className={classes.buttonBox}
             justifyContent="center"
@@ -151,7 +150,6 @@ const AddTodoForm = () => {
                 <div></div>
               )}
             </Fade>
-
             <Button
               className={classes.buttons}
               onClick={() => {

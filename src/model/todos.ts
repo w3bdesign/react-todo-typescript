@@ -38,10 +38,8 @@ const todosModel: TodosModel = {
   completeTodo: action((state, { rowIndex }) => {
     state.todoItems[rowIndex][2] = true;
   }),
-  deleteTodo: action((state, { rowIndex }) => {    
-    //console.log('Delete single todo called from todo.ts');
-    //console.log(rowIndex);
-    state.todoItems.splice(rowIndex,1)
+  deleteTodo: action((state, { rowIndex }) => {
+    state.todoItems.splice(rowIndex, 1);
   }),
   deleteAllTodos: action((state, _) => {
     state.todoItems.length = 0;
