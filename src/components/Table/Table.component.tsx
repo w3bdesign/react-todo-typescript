@@ -31,12 +31,9 @@ const COLUMNS = [
   'Date',
   {
     name: 'Completed',
-    
     options: {
-     // display: "true",
-      print: false,
+      display: 'excluded',
       filter: false,
-      sort: false
     },
   },
   {
