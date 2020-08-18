@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^10.4.8",
     "@testing-library/user-event": "^12.1.1",
+    "clsx": "^1.1.1",
     "easy-peasy": "^3.3.1",
     "mui-datatables": "^3.4.0",
     "react": "^16.13.1",

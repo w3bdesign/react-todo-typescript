@@ -2,6 +2,7 @@ import * as React from 'react';
 import MUIDataTable from 'mui-datatables';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
 
 import { useStoreState } from '../../hooks/hooks';
 import CompleteButton from '../Buttons/CompleteButton.component';
@@ -15,6 +16,9 @@ const useStyles = makeStyles((theme: Theme) =>
       color: '#000',
       paddingTop: theme.spacing(2),
     },
+    CompletedTodoRow: {
+      '& td': { backgroundColor: '#7cb342', textDecoration: 'line-through' },
+    },
   })
 );
 
@@ -25,14 +29,15 @@ interface ITableMeta {
 const COLUMNS = [
   'Title',
   'Date',
+  'Completed',
   {
     name: 'Action',
     options: {
       filter: true,
       customBodyRender: (
-        value: any, // Unused variable, so any is OK
+        _: any, // Unused variable, so any is OK
         tableMeta: ITableMeta,
-        updateValue: any // Unused variable, so any is OK
+        __: any // Unused variable, so any is OK
       ) => (
         <>
           <CompleteButton tableMeta={tableMeta} />
@@ -46,6 +51,17 @@ const COLUMNS = [
 export default function Table() {
   const classes = useStyles();
   const todos = useStoreState((state) => state.todos.todoItems);
+
+  const options = {
+    setRowProps: (row: (string | boolean)[], rowIndex: number) => {
+      return {
+        className: clsx({
+          [classes.CompletedTodoRow]: row[2] === true,
+        }),
+      };
+    },
+  };
+
   return (
     <>
       <MUIDataTable
@@ -54,6 +70,7 @@ export default function Table() {
         }
         data={todos}
         columns={COLUMNS}
+        options={options}
       />
     </>
   );

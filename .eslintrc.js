@@ -24,7 +24,7 @@ module.exports = {
     'no-console': [
       'error',
       {
-        allow: ['warn', 'error'],
+        allow: ['warn'],
       },
     ],
     'multiline-ternary': 0,

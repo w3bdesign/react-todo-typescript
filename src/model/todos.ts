@@ -40,16 +40,17 @@ const todosModel: TodosModel = {
   addTodo: action((state, payload) => {
     state.todoItems.push([payload, payload, payload]);
   }),
-  completeTodo: action((state, { rowIndex }) => {
-    console.log('Complete todo called from todo.ts');
-    console.log(rowIndex);   
+  completeTodo: action((state, { rowIndex }) => {  
+    state.todoItems[rowIndex][2] = true   
   }),
   deleteTodo: action((state, { rowIndex }) => {
     //state.todoItems.length = 0;
     console.log('Delete single todo called from todo.ts');
-    console.log(rowIndex);    
+    console.log(rowIndex);
+    
+
   }),
-  deleteAllTodos: action((state, payload) => {
+  deleteAllTodos: action((state, _) => {
     state.todoItems.length = 0;
   }),
 };
