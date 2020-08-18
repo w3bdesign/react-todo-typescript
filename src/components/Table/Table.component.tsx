@@ -32,10 +32,8 @@ const COLUMNS = [
   {
     name: 'Completed',
     options: {
-      //display: 'excluded',
-      print: false,
+      display: 'excluded',
       filter: false,
-      sort: false
     },
   },
   {
