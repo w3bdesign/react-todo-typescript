@@ -31,8 +31,9 @@ const COLUMNS = [
   'Date',
   {
     name: 'Completed',
+    
     options: {
-      //display: 'excluded',
+     // display: "true",
       print: false,
       filter: false,
       sort: false
