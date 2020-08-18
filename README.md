@@ -13,3 +13,6 @@ TODO application with React, Typescript, React Hook Form, Material UI and Easy P
 - Prettier for linting
 - ESLint with AirBnb for code style guide
 
+## TODO
+
+- Wait for bug with display to be fixed (waiting for PR to be merged) and then launch project 
