@@ -59,7 +59,7 @@ export default function Table() {
   const todos = useStoreState((state) => state.todos.todoItems);
 
   const options = {
-    setRowProps: (row: (string | boolean)[], _: number) => {     
+    setRowProps: (row: (string | boolean)[], _: number) => {
       return {
         className: clsx({
           [classes.CompletedTodoRow]: row[2] === true,

@@ -15,4 +15,4 @@ TODO application with React, Typescript, React Hook Form, Material UI and Easy P
 
 ## TODO
 
-- Wait for bug with display to be fixed (waiting for PR to be merged) and then launch project 
+- Add confirmation before deletion of TODOs
