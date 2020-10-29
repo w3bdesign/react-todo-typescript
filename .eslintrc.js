@@ -28,23 +28,16 @@ module.exports = {
       },
     ],
     'multiline-ternary': 0,
-    'no-unused-vars': 'off',
+    'no-unused-vars': 0,
     'no-shadow': 0,
     '@typescript-eslint/no-unused-vars': 'error',
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
     'react/prop-types': 0,
     'linebreak-style': 0,
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
+    'import/no-unresolved': 0,
+    'import/extensions': 0,
+    'no-use-before-define': 0,
     'max-len': [
       'warn',
       {

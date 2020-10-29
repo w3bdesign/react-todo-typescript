@@ -1,6 +1,6 @@
 import { createStore } from 'easy-peasy';
 import model from '../model';
 
-const store = createStore(model, devTools: process.env.NODE_ENV === 'development');
+const store = createStore(model);
 
 export default store;

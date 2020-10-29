@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+/* eslint-disable no-undef */
+import * as React from 'react';
+
 import { render } from '@testing-library/react';
 import { StoreProvider } from 'easy-peasy';
 
-import { useStoreState } from './hooks/hooks';
 import store from './store/index';
 
 import Table from './components/Table/Table.component';

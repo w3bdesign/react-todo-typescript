@@ -41,12 +41,16 @@ const COLUMNS = [
     options: {
       filter: true,
       customBodyRender: (
-        _: any, // Unused variable, so any is OK
+        value: any, // Unused variable, so any is OK
         tableMeta: ITableMeta,
-        __: any // Unused variable, so any is OK
+        updateValue: any // Unused variable, so any is OK
       ) => (
         <>
-          <CompleteButton tableMeta={tableMeta} />
+          <CompleteButton
+            value={value}
+            updateValue={updateValue}
+            tableMeta={tableMeta}
+          />
           <DeleteButton tableMeta={tableMeta} />
         </>
       ),
@@ -59,7 +63,8 @@ export default function Table() {
   const todos = useStoreState((state) => state.todos.todoItems);
 
   const options = {
-    setRowProps: (row: (string | boolean)[], _: number) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setRowProps: (row: (string | boolean)[], _x: number) => {
       return {
         className: clsx({
           [classes.CompletedTodoRow]: row[2] === true,

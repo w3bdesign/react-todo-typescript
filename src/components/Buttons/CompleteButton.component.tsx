@@ -8,7 +8,9 @@ import { useStoreActions } from '../../hooks/hooks';
  * Returns the index of the row we are completing
  */
 interface ICompleteButtonIndex {
+  value: any;
   tableMeta: { rowIndex: number };
+  updateValue: any;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -20,10 +22,20 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const CompleteButton = ({ tableMeta }: ICompleteButtonIndex) => {
+const CompleteButton = ({
+  value,
+  tableMeta,
+  updateValue,
+}: ICompleteButtonIndex) => {
   const classes = useStyles();
 
   const completeTodo = useStoreActions((actions) => actions.todos.completeTodo);
+
+  const logValues = () => {
+    return { value, updateValue };
+  };
+
+  logValues();
 
   const onCompleteClick = useCallback(() => {
     completeTodo(tableMeta);

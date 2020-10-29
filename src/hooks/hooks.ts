@@ -3,6 +3,6 @@ import { StoreModel } from '../model';
 
 const typedHooks = createTypedHooks<StoreModel>();
 
-export const useStoreActions = typedHooks.useStoreActions;
-export const useStoreDispatch = typedHooks.useStoreDispatch;
-export const useStoreState = typedHooks.useStoreState;
+export const {useStoreActions} = typedHooks;
+export const {useStoreDispatch} = typedHooks;
+export const {useStoreState} = typedHooks;

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { Action, action } from 'easy-peasy';
 
 /**
@@ -9,7 +10,7 @@ interface ICompleteTodo {
 
 export interface TodosModel {
   /**
-   * List of todoItems. We accept strings and booleans, and we use the boolean for the completed TODOs
+   * List of todoItems.
    */
   todoItems: (string | boolean)[][];
   /**
@@ -41,7 +42,8 @@ const todosModel: TodosModel = {
   deleteTodo: action((state, { rowIndex }) => {
     state.todoItems.splice(rowIndex, 1);
   }),
-  deleteAllTodos: action((state, _) => {
+
+  deleteAllTodos: action((state) => {
     state.todoItems.length = 0;
   }),
 };

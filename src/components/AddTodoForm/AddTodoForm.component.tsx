@@ -147,7 +147,7 @@ const AddTodoForm = () => {
                   Add TODO
                 </Button>
               ) : (
-                <div></div>
+                <div />
               )}
             </Fade>
             <Button
