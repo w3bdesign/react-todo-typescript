@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
 import MUIDataTable from 'mui-datatables';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
@@ -22,9 +23,15 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+type Display = boolean | 'true' | 'false' | 'excluded';
+
 interface ITableMeta {
   rowIndex: number;
 }
+
+/* We need to import Display type and cast it as Display */
+const excluded: string = 'excluded';
+const castExcluded: Display = excluded as Display;
 
 const COLUMNS = [
   'Title',
@@ -32,7 +39,7 @@ const COLUMNS = [
   {
     name: 'Completed',
     options: {
-      display: 'excluded',
+      display: castExcluded,
       filter: false,
     },
   },
@@ -41,9 +48,9 @@ const COLUMNS = [
     options: {
       filter: true,
       customBodyRender: (
-        value: any, // Unused variable, so any is OK
+        value: String,
         tableMeta: ITableMeta,
-        updateValue: any // Unused variable, so any is OK
+        updateValue: Object
       ) => (
         <>
           <CompleteButton
@@ -63,14 +70,11 @@ export default function Table() {
   const todos = useStoreState((state) => state.todos.todoItems);
 
   const options = {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    setRowProps: (row: (string | boolean)[], _x: number) => {
-      return {
-        className: clsx({
-          [classes.CompletedTodoRow]: row[2] === true,
-        }),
-      };
-    },
+    setRowProps: (row: (string | boolean)[], _x: number) => ({
+      className: clsx({
+        [classes.CompletedTodoRow]: row[2] === true,
+      }),
+    }),
   };
 
   return (

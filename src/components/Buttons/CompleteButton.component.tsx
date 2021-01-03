@@ -31,9 +31,7 @@ const CompleteButton = ({
 
   const completeTodo = useStoreActions((actions) => actions.todos.completeTodo);
 
-  const logValues = () => {
-    return { value, updateValue };
-  };
+  const logValues = () => ({ value, updateValue });
 
   logValues();
 
