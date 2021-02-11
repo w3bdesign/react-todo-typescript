@@ -1,3 +1,5 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/w3bdesign/react-todo-typescript/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/w3bdesign/react-todo-typescript/?branch=master)
+
 # React TODO Typescript
 
 TODO application with React, Typescript, React Hook Form, Material UI and Easy Peasy 
