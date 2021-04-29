@@ -1,0 +1,54 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.24
+    - 14.14.27
+    - 14.14.34
+    - 14.14.41
+    - 15.0.0
+  - dependency-name: react-hook-form
+    versions:
+    - 6.15.5
+    - 7.0.0
+    - 7.0.1
+    - 7.0.2
+    - 7.0.3
+    - 7.0.4
+    - 7.0.5
+    - 7.0.7
+    - 7.1.0
+    - 7.2.1
+    - 7.2.3
+    - 7.3.3
+    - 7.3.4
+  - dependency-name: "@testing-library/user-event"
+    versions:
+    - 13.0.0
+    - 13.0.1
+    - 13.0.10
+    - 13.0.13
+    - 13.0.16
+    - 13.0.6
+    - 13.0.7
+    - 13.1.5
+  - dependency-name: eslint-config-prettier
+    versions:
+    - 8.0.0
+    - 8.2.0
+  - dependency-name: "@types/mui-datatables"
+    versions:
+    - 3.7.2
+  - dependency-name: "@typescript-eslint/eslint-plugin"
+    versions:
+    - 4.20.0
+  - dependency-name: "@typescript-eslint/parser"
+    versions:
+    - 4.19.0
