@@ -44,7 +44,7 @@
     "@types/mui-datatables": "^3.7.3",
     "@types/node": "^15.3.1",
     "@types/react": "^17.0.6",
-    "@types/react-dom": "^17.0.3",
+    "@types/react-dom": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "7.24.0",
