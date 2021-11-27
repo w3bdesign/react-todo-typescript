@@ -40,7 +40,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^27.0.3",
     "@types/mui-datatables": "^3.7.3",
     "@types/node": "^16.6.1",
     "@types/react": "^17.0.37",
