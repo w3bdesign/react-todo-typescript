@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import * as React from "react";
+import React from "react";
+
 import MUIDataTable from "mui-datatables";
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
@@ -70,7 +70,7 @@ const Table = () => {
   const todos = useStoreState((state) => state.todos.todoItems);
 
   const options = {
-    setRowProps: (row: (string | boolean)[], _x: number) => ({
+    setRowProps: (row: boolean[]) => ({
       className: clsx({
         [classes.CompletedTodoRow]: row[2] === true,
       }),
