@@ -1,4 +1,4 @@
-import todosModel, { TodosModel } from './todos';
+import todosModel, { TodosModel } from "./todos";
 
 export interface StoreModel {
   /**

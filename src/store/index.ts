@@ -1,5 +1,5 @@
-import { createStore } from 'easy-peasy';
-import model from '../model';
+import { createStore } from "easy-peasy";
+import model from "../model";
 
 const store = createStore(model);
 

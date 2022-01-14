@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { Action, action } from 'easy-peasy';
+import { Action, action } from "easy-peasy";
 
 /**
  * Interface for completeTodo with rowIndex: number
@@ -32,9 +32,9 @@ export interface TodosModel {
 }
 
 const todosModel: TodosModel = {
-  todoItems: [['Test', new Date().toLocaleString('no-NO'), false]],
+  todoItems: [["Test", new Date().toLocaleString("no-NO"), false]],
   addTodo: action((state, payload) => {
-    state.todoItems.push([payload, new Date().toLocaleString('no-NO'), false]);
+    state.todoItems.push([payload, new Date().toLocaleString("no-NO"), false]);
   }),
   completeTodo: action((state, { rowIndex }) => {
     state.todoItems[rowIndex][2] = true;
