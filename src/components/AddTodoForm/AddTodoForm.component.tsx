@@ -1,6 +1,6 @@
-import React, { useState, useEffect, SyntheticEvent } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import React, { useState, useEffect, SyntheticEvent } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {
   Paper,
   Button,
@@ -9,31 +9,31 @@ import {
   Fade,
   Snackbar,
   Box,
-} from '@material-ui/core';
-import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
+} from "@material-ui/core";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
-import { useStoreActions } from '../../hooks/hooks';
+import { useStoreActions } from "../../hooks/hooks";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      '& > *': {
+      "& > *": {
         margin: theme.spacing(2),
       },
     },
     title: {
       fontSize: 24,
-      textAlign: 'center',
-      color: '#000',
+      textAlign: "center",
+      color: "#000",
       paddingTop: theme.spacing(2),
     },
     error: {
       fontSize: 16,
-      textAlign: 'left',
-      color: '#FF0000',
+      textAlign: "left",
+      color: "#FF0000",
     },
     buttonBox: {
-      display: 'flex',
+      display: "flex",
     },
     buttons: {
       margin: theme.spacing(1),
@@ -45,15 +45,15 @@ type Inputs = {
   addTodoInput: string;
 };
 
-function Alert(props: AlertProps) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+const Alert = (props: AlertProps) => (
+  <MuiAlert elevation={6} variant="filled" {...props} />
+);
 
 const AddTodoForm = () => {
   /**
    * Text in AddTodo input field
    */
-  const [text, setText] = useState<string>('');
+  const [text, setText] = useState<string>("");
   /**
    * Text in AddTodo has text = true | false
    */
@@ -81,11 +81,11 @@ const AddTodoForm = () => {
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
     setaddedTodo(true);
     addTodo(Object.values(data)[0]);
-    setText('');
+    setText("");
   };
 
   const onTodoAddedClose = (event?: SyntheticEvent, reason?: string) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setaddedTodo(false);
