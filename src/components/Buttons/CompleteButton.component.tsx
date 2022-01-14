@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
-import { Button } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import React, { useCallback } from "react";
+import { Button } from "@material-ui/core";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 
-import { useStoreActions } from '../../hooks/hooks';
+import { useStoreActions } from "../../hooks/hooks";
 
 /**
  * Returns the index of the row we are completing
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     button: {
       margin: theme.spacing(1),
-      minWidth: '110px',
+      minWidth: "110px",
     },
   })
 );
@@ -40,16 +40,14 @@ const CompleteButton = ({
   }, [completeTodo, tableMeta]);
 
   return (
-    <>
-      <Button
-        variant="contained"
-        color="primary"
-        className={classes.button}
-        onClick={onCompleteClick}
-      >
-        Complete
-      </Button>
-    </>
+    <Button
+      variant="contained"
+      color="primary"
+      className={classes.button}
+      onClick={onCompleteClick}
+    >
+      Complete
+    </Button>
   );
 };
 
